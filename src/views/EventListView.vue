@@ -53,7 +53,7 @@ export default {
   },
   //eslint-disable-next-line no-unused-vars
   beforeRouteEnter(routeTo, routeFrom, next) {
-    EventService.getEvents(2, parseInt(routeTo.query.page) || 1)
+    EventService.getEvents(3, parseInt(routeTo.query.page) || 1)
       .then((response) => {
         next((comp) => {
           comp.events = response.data
@@ -77,7 +77,7 @@ export default {
   },
   computed: {
     hasNextPage() {
-      let totalPages = Math.ceil(this.totalEvents / 2)
+      let totalPages = Math.ceil(this.totalEvents / 3)
       return this.page < totalPages
     }
   }
